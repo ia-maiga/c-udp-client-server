@@ -1,0 +1,17 @@
+name: CI
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build (warnings are errors)
+        run: make CFLAGS="-std=c11 -Wall -Wextra -pedantic -Werror -O2"
+
+      - name: End-to-end test
+        run: make test
