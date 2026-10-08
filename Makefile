@@ -14,7 +14,7 @@ bin:
 	mkdir -p bin
 
 test: all
-	./tests/run_test.sh
+		bash tests/run_test.sh
 
 clean:
 	rm -rf bin
